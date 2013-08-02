@@ -24,12 +24,16 @@ import scala.xml.transform.{RewriteRule, RuleTransformer}
 
 object KafkaBuild extends Build {
   val commonSettings = Seq(
-    version := "0.7.2FF",
+    version := "0.7.2G",
     organization := "org.apache",
     scalacOptions ++= Seq("-deprecation", "-unchecked"),
     scalaVersion := "2.10.0",
     javacOptions ++= Seq("-Xlint:unchecked", "-source", "1.5"),
+    javacOptions in doc := Seq("-source", "1.5"),
     parallelExecution in Test := false, // Prevent tests from overrunning each other
+    publishTo := Some("kloutLibraryReleases" at "http://maven-repo:8081/artifactory/libs-release-local"),
+
+    credentials := Credentials(Path.userHome / ".ivy2" / ".credentials") :: Nil,
     libraryDependencies ++= Seq(
       "org.scalatest"         %% "scalatest"    % "1.9" % "test",
       "log4j"                 %  "log4j"        % "1.2.15",

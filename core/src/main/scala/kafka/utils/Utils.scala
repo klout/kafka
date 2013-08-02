@@ -669,6 +669,7 @@ object Utils extends Logging {
     className match {
       case null => null.asInstanceOf[T]
       case _ =>
+        //TODO: make this use the context classloader.
         val clazz = Class.forName(className)
         val clazzT = clazz.asInstanceOf[Class[T]]
         val constructors = clazzT.getConstructors
