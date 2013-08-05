@@ -24,8 +24,8 @@ import scala.xml.transform.{RewriteRule, RuleTransformer}
 
 object KafkaBuild extends Build {
   val commonSettings = Seq(
-    version := "0.7.2FF",
-    organization := "org.apache",
+    version := "0.7.2.dyross.3",
+    organization := "kafka",
     scalacOptions ++= Seq("-deprecation", "-unchecked"),
     scalaVersion := "2.10.0",
     javacOptions ++= Seq("-Xlint:unchecked", "-source", "1.5"),
